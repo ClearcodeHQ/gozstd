@@ -1,3 +1,3 @@
-module github.com/valyala/gozstd
+module github.com/clearcodehq/gozstd
 
 go 1.12
