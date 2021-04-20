@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/clearcodehq/gozstd.svg)](https://travis-ci.org/clearcodehq/gozstd)
-[![GoDoc](https://godoc.org/github.com/clearcodehq/gozstd?status.svg)](http://godoc.org/github.com/clearcodehq/gozstd)
-[![Go Report](https://goreportcard.com/badge/github.com/clearcodehq/gozstd)](https://goreportcard.com/report/github.com/clearcodehq/gozstd)
-[![codecov](https://codecov.io/gh/clearcodehq/gozstd/branch/master/graph/badge.svg)](https://codecov.io/gh/clearcodehq/gozstd)
+[![Build Status](https://travis-ci.org/ClearcodeHQ/gozstd.svg)](https://travis-ci.org/ClearcodeHQ/gozstd)
+[![GoDoc](https://godoc.org/github.com/ClearcodeHQ/gozstd?status.svg)](http://godoc.org/github.com/ClearcodeHQ/gozstd)
+[![Go Report](https://goreportcard.com/badge/github.com/ClearcodeHQ/gozstd)](https://goreportcard.com/report/github.com/ClearcodeHQ/gozstd)
+[![codecov](https://codecov.io/gh/ClearcodeHQ/gozstd/branch/master/graph/badge.svg)](https://codecov.io/gh/ClearcodeHQ/gozstd)
 
 # gozstd - go wrapper for [zstd](http://facebook.github.io/zstd/)
 
@@ -9,10 +9,10 @@
 ## Features
 
   * Vendors upstream [zstd](https://github.com/facebook/zstd) without any modifications.
-  * [Simple API](https://godoc.org/github.com/clearcodehq/gozstd).
+  * [Simple API](https://godoc.org/github.com/ClearcodeHQ/gozstd).
   * Optimized for speed. The API may be easily used in zero allocations mode.
   * `Compress*` and `Decompress*` functions are optimized for high concurrency.
-  * Proper [Writer.Flush](https://godoc.org/github.com/clearcodehq/gozstd#Writer.Flush)
+  * Proper [Writer.Flush](https://godoc.org/github.com/ClearcodeHQ/gozstd#Writer.Flush)
     for network apps.
   * Supports the following features from upstream [zstd](https://facebook.github.io/zstd/):
       * Block / stream compression / decompression with all the supported compression levels
@@ -30,39 +30,39 @@
 ### How to install `gozstd`?
 
 ```
-go get -u github.com/clearcodehq/gozstd
+go get -u github.com/ClearcodeHQ/gozstd
 ```
 
 ### How to compress data?
 
-The easiest way is just to use [Compress](https://godoc.org/github.com/clearcodehq/gozstd#Compress):
+The easiest way is just to use [Compress](https://godoc.org/github.com/ClearcodeHQ/gozstd#Compress):
 
 ```go
 	compressedData := Compress(nil, data)
 ```
 
-There is also [StreamCompress](https://godoc.org/github.com/clearcodehq/gozstd#StreamCompress)
-and [Writer](https://godoc.org/github.com/clearcodehq/gozstd#Writer) for stream compression.
+There is also [StreamCompress](https://godoc.org/github.com/ClearcodeHQ/gozstd#StreamCompress)
+and [Writer](https://godoc.org/github.com/ClearcodeHQ/gozstd#Writer) for stream compression.
 
 ### How to decompress data?
 
-The easiest way is just to use [Decompress](https://godoc.org/github.com/clearcodehq/gozstd#Decompress):
+The easiest way is just to use [Decompress](https://godoc.org/github.com/ClearcodeHQ/gozstd#Decompress):
 
 ```go
 	data, err := Decompress(nil, compressedData)
 ```
 
-There is also [StreamDecompress](https://godoc.org/github.com/clearcodehq/gozstd#StreamDecompress)
-and [Reader](https://godoc.org/github.com/clearcodehq/gozstd#Reader) for stream decompression.
+There is also [StreamDecompress](https://godoc.org/github.com/ClearcodeHQ/gozstd#StreamDecompress)
+and [Reader](https://godoc.org/github.com/ClearcodeHQ/gozstd#Reader) for stream decompression.
 
 ### How to cross-compile gozstd?
 
 If you're cross-compiling some code that uses gozstd and you stumble upon the following error:
 ```
-# github.com/clearcodehq/gozstd
-/go/pkg/mod/github.com/clearcodehq/gozstd@v1.6.2/stream.go:31:59: undefined: CDict
-/go/pkg/mod/github.com/clearcodehq/gozstd@v1.6.2/stream.go:35:64: undefined: CDict
-/go/pkg/mod/github.com/clearcodehq/gozstd@v1.6.2/stream.go:47:20: undefined: Writer
+# github.com/ClearcodeHQ/gozstd
+/go/pkg/mod/github.com/ClearcodeHQ/gozstd@v1.6.2/stream.go:31:59: undefined: CDict
+/go/pkg/mod/github.com/ClearcodeHQ/gozstd@v1.6.2/stream.go:35:64: undefined: CDict
+/go/pkg/mod/github.com/ClearcodeHQ/gozstd@v1.6.2/stream.go:47:20: undefined: Writer
 ```
 
 You can easily fix it by enabling [CGO](https://golang.org/cmd/cgo/) and using a cross-compiler (e.g. `arm-linux-gnueabi-gcc`):
@@ -70,7 +70,7 @@ You can easily fix it by enabling [CGO](https://golang.org/cmd/cgo/) and using a
 env CC=arm-linux-gnueabi-gcc GOOS=linux GOARCH=arm CGO_ENABLED=1 go build ./main.go 
 ```
 
-**NOTE**: Check [#21](https://github.com/clearcodehq/gozstd/issues/21) for more info.
+**NOTE**: Check [#21](https://github.com/ClearcodeHQ/gozstd/issues/21) for more info.
 
 ### Who uses gozstd?
 

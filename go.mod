@@ -1,3 +1,3 @@
-module github.com/clearcodehq/gozstd
+module github.com/ClearcodeHQ/gozstd
 
 go 1.12
